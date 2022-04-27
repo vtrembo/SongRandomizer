@@ -1,4 +1,5 @@
 ﻿using SongRandomizer.Helper;
+using SongRandomizer.MVVM.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,16 +26,28 @@ namespace SongRandomizer
         public MainWindow()
         {
             InitializeComponent();
-            
         }
 
         private async void ButtonGenerateSong_Click(object sender, RoutedEventArgs e)
         {
-            var randomWord = await RandomWordProcessor.loadRandomWord();
-            ErrorMessage.Content = randomWord.Word;
 
+         if (!String.IsNullOrEmpty(userInput.Text.ToString()))
+         {
+            int amountOfWords = Int32.Parse(userInput.Text);
+            if(amountOfWords > 5 && amountOfWords < 20)
+            {
+                    RandomWord randomWord = await RandomWordProcessor.LoadRandomWord();
+                    ErrorMessage.Content = randomWord.Word;
+                } else
+             {
+                    ErrorMessage.Visibility = Visibility.Visible;
+             }
+          } else
+          {
+                ErrorMessage.Visibility = Visibility.Visible;
+          }
         }
-        private async Task LoadWord()
+        private async Task LoadWord(int amountOfWords)
         {
 
         }

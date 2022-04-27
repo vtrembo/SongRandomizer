@@ -10,7 +10,7 @@ namespace SongRandomizer.Helper
 {
     public class RandomWordProcessor
     {
-        public static async Task<RandomWord> loadRandomWord ()
+        public static async Task<RandomWord> LoadRandomWord ()
         {
             string url = "https://random-words-api.vercel.app/word";
 

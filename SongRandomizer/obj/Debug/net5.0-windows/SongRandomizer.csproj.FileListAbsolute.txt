@@ -5,7 +5,6 @@ C:\Users\sweaz\source\repos\vtrembo\SongRandomizer\SongRandomizer\bin\Debug\net5
 C:\Users\sweaz\source\repos\vtrembo\SongRandomizer\SongRandomizer\bin\Debug\net5.0-windows\SongRandomizer.dll
 C:\Users\sweaz\source\repos\vtrembo\SongRandomizer\SongRandomizer\bin\Debug\net5.0-windows\ref\SongRandomizer.dll
 C:\Users\sweaz\source\repos\vtrembo\SongRandomizer\SongRandomizer\bin\Debug\net5.0-windows\SongRandomizer.pdb
-C:\Users\sweaz\source\repos\vtrembo\SongRandomizer\SongRandomizer\obj\Debug\net5.0-windows\SongRandomizer.csproj.AssemblyReference.cache
 C:\Users\sweaz\source\repos\vtrembo\SongRandomizer\SongRandomizer\obj\Debug\net5.0-windows\MainWindow.g.cs
 C:\Users\sweaz\source\repos\vtrembo\SongRandomizer\SongRandomizer\obj\Debug\net5.0-windows\App.g.cs
 C:\Users\sweaz\source\repos\vtrembo\SongRandomizer\SongRandomizer\obj\Debug\net5.0-windows\SongRandomizer_MarkupCompile.cache
@@ -26,3 +25,4 @@ C:\Users\sweaz\source\repos\vtrembo\SongRandomizer\SongRandomizer\bin\Debug\net5
 C:\Users\sweaz\source\repos\vtrembo\SongRandomizer\SongRandomizer\obj\Debug\net5.0-windows\SongRandomizer.csproj.CopyComplete
 C:\Users\sweaz\source\repos\vtrembo\SongRandomizer\SongRandomizer\obj\Debug\net5.0-windows\Theme\TextboxDefault.baml
 C:\Users\sweaz\source\repos\vtrembo\SongRandomizer\SongRandomizer\obj\Debug\net5.0-windows\App.baml
+C:\Users\sweaz\source\repos\vtrembo\SongRandomizer\SongRandomizer\obj\Debug\net5.0-windows\Theme\RecordCard.baml
