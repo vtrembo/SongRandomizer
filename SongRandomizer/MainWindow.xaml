@@ -122,5 +122,14 @@
                   
                   />
 
+
+        <Viewbox Grid.Row="1"
+>
+            <Label x:Name="TestMsg"
+                   FontSize="15"
+                   FontWeight="SemiBold"
+                   Foreground="#C1c1c1"/>
+        </Viewbox>
+
     </Grid>
 </Window>

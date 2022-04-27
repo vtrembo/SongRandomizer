@@ -1,6 +1,7 @@
 ﻿using SongRandomizer.Helper;
 using SongRandomizer.MVVM.Model;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ namespace SongRandomizer
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static List<string> words = new List<string>();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -35,10 +38,10 @@ namespace SongRandomizer
          {
             int amountOfWords = Int32.Parse(userInput.Text);
             if(amountOfWords > 5 && amountOfWords < 20)
-            {
-                    RandomWord randomWord = await RandomWordProcessor.LoadRandomWord();
-                    ErrorMessage.Content = randomWord.Word;
-                } else
+                {
+                    await LoadWord(amountOfWords);
+                }
+                else
              {
                     ErrorMessage.Visibility = Visibility.Visible;
              }
@@ -49,7 +52,30 @@ namespace SongRandomizer
         }
         private async Task LoadWord(int amountOfWords)
         {
+            if (words != null)
+            {
+                words.Clear();
+            }
 
+            for (int i = 0; i < amountOfWords; i++)
+            {
+                RandomWord randomWord = await RandomWordProcessor.LoadRandomWord();
+                if (words != null)
+                {
+                    if (!words.Contains(randomWord.Word))
+                    {
+                        words.Add(randomWord.Word);
+                    }
+                    else
+                    {
+                        i--;
+                    }
+                }
+                else
+                {
+                    words.Add(randomWord.Word);
+                }
+            }
         }
 
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
