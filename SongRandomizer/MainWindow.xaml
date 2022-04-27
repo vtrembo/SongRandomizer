@@ -54,7 +54,8 @@
             <TextBox Grid.Row="0" Grid.Column="1" 
                      Margin="20,25,150,25"
                      Text="Provide number from 5 to 20"
-                     Style="{StaticResource TextboxDefault}"/>
+                     Style="{StaticResource TextboxDefault}"
+                     PreviewTextInput="TextBox_PreviewTextInput"/>
             
         </Grid>
 
