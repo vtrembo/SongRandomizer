@@ -3,19 +3,11 @@ using SongRandomizer.MVVM.Model;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace SongRandomizer
 {
@@ -25,6 +17,8 @@ namespace SongRandomizer
     public partial class MainWindow : Window
     {
         public static List<string> words = new List<string>();
+
+        public static Hashtable recordingInfo = new Hashtable();
 
         public MainWindow()
         {
@@ -49,34 +43,46 @@ namespace SongRandomizer
           {
                 ErrorMessage.Visibility = Visibility.Visible;
           }
+            await LoadRecording();
         }
         private async Task LoadWord(int amountOfWords)
         {
-            if (words != null)
-            {
-                words.Clear();
-            }
 
+            if(recordingInfo != null)
+            {
+                recordingInfo.Clear();
+            }
             for (int i = 0; i < amountOfWords; i++)
             {
                 RandomWord randomWord = await RandomWordProcessor.LoadRandomWord();
-                if (words != null)
+                if(recordingInfo != null)
                 {
-                    if (!words.Contains(randomWord.Word))
+                    if (!recordingInfo.ContainsKey(randomWord.Word))
                     {
-                        words.Add(randomWord.Word);
-                    }
-                    else
+                        recordingInfo.Add(randomWord.Word, null);
+                    } else
                     {
                         i--;
                     }
-                }
-                else
+                } else
                 {
-                    words.Add(randomWord.Word);
+                    recordingInfo.Add(randomWord.Word, null);
                 }
             }
+            foreach (string word in recordingInfo.Keys)
+            {
+                TestMsg.Content = TestMsg.Content + word + " ";
+            }
         }
+
+        private async Task LoadRecording()
+        {
+            foreach (string recording in recordingInfo.Keys)
+            {
+                recordingInfo[recording] = await RecordProcessor.LoadRecording(recording);
+            }
+        }
+
 
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace SongRandomizer.MVVM.Model
 {
-    public class RandomWord
+    public class ArtistCredit
     {
-        [JsonProperty("word")]
-        public string Word { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; }
     }
 }

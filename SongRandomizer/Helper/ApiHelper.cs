@@ -10,13 +10,15 @@ namespace SongRandomizer.Helper
 {
     public static class ApiHelper
     {
-        public static HttpClient apiClient { get; set; } 
+        public static HttpClient apiClient { get; set; }
+        public static HttpClient apiClientForMusicBrainz { get; set; }
 
         public static void initializeClient()
         {
             apiClient = new HttpClient();
             apiClient.DefaultRequestHeaders.Accept.Clear();
             apiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            
         }
     }
 }
